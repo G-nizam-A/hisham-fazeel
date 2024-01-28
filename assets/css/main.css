@@ -2621,7 +2621,7 @@ p {
 .personal__head p {
   font-size: 42px;
   font-weight: 500;
-  color: var(--white);
+  /* color: var(--white); */
 }
 .personal__head img {
   animation: cir360 10s linear infinite;
@@ -4937,4 +4937,24 @@ p {
 }
 .__cf_email__{
   text-transform: lowercase !important;
+}
+
+
+.abt_text > .abt_text1 > div {
+  background: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 50%,
+    rgb(37, 37, 37) 50%
+  );
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+/*  
+  margin-left: 50px;
+  line-height: 1.2;  */
+  /*   outline: 6px dotted teal; */
+  /* font-size: 50px; */
+/*    display: block-inline !important;  */
 }

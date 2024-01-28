@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        /*   height: 300vh; */
+        overflow-x: hidden;
+        background-color: #161616;
+    }
+
+    .abt_text > .abt_text1 > div {
+  background: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 50%,
+    rgb(37, 37, 37) 50%
+  );
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+ 
+  margin-left: 50px;
+  line-height: 1.2; 
+  /*   outline: 6px dotted teal; */
+  font-size: 50px;
+/*    display: block-inline !important;  */
+}
+
+
+</style>
+
+<body>
+
+ 
+<div class="abt_text">
+    <h1 class="abt_text1">Macaroon croissant pastry shortbread cupcake chupa chups pudding. Gummies pie candy canes sweet roll cake chupa chups cake fruitcake. Cake bonbon chupa chups carrot cake cake gingerbread cookie cake. </h1>
+    </div>
+        <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
+    <script>
+       gsap.config({ trialWarn: false });
+console.clear();
+gsap.registerPlugin(ScrollTrigger, SplitText);
+let split = new SplitText(".abt_text1", { type: "lines" });
+
+function makeItHappen() {
+  split.lines.forEach((target) => {
+    gsap.to(target, {
+      backgroundPositionX: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: target,
+        markers: true,
+        scrub: 0.5,
+        start: "top center",
+        end: "bottom center"
+      }
+    });
+  });
+}
+
+let someDelay = gsap.delayedCall(0.2, newTriggers).pause();
+window.addEventListener("resize", () => someDelay.restart(true));
+
+function newTriggers() {
+  ScrollTrigger.getAll().forEach((trigger) => {
+    trigger.kill();
+  });
+  split.split();
+  makeItHappen();
+}
+
+makeItHappen();
+
+
+    </script>
+</body>
+
+</html>
